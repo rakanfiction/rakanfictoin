@@ -1,8 +1,13 @@
-FROM n8nio/n8n
+FROM node:18
 
-ENV N8N_PORT=10000
-ENV WEBHOOK_URL=https://rakanfiction.onrender.com
+# إنشاء مجلد للعمل
+WORKDIR /app
 
-EXPOSE 10000
+# تثبيت n8n بشكل عالمي
+RUN npm install n8n -g
 
-CMD ["n8n", "start", "--tunnel"]
+# فتح البورت الافتراضي
+EXPOSE 5678
+
+# أمر التشغيل
+CMD ["n8n"]
